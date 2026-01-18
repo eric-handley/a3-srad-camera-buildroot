@@ -7,6 +7,7 @@ BR2_GLOBAL_PATCH_DIR="board/uvic-rocketry/srad-camera-rk3566/patches"
 BR2_DOWNLOAD_FORCE_CHECK_HASHES=y
 BR2_TARGET_GENERIC_HOSTNAME="srad-camera"
 BR2_TARGET_GENERIC_ISSUE="UVIC Rocketry SRAD Camera Board"
+BR2_INIT_SYSTEMD=y
 BR2_ROOTFS_OVERLAY="board/uvic-rocketry/srad-camera-rk3566/rootfs_overlay"
 BR2_ROOTFS_POST_BUILD_SCRIPT="board/uvic-rocketry/srad-camera-rk3566/post-build.sh"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"

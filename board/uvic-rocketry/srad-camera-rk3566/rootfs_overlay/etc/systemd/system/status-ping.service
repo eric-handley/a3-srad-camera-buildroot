@@ -1,0 +1,12 @@
+[Unit]
+Description=UART Status Ping Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/status-ping.sh
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
