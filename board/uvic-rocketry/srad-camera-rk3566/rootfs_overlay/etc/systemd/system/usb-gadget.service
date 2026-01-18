@@ -1,0 +1,12 @@
+[Unit]
+Description=USB Gadget Serial Setup
+After=local-fs.target
+Before=getty.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/setup-usb-gadget.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
