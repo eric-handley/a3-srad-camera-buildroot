@@ -1,3 +1,11 @@
+image data.ext4 {
+	ext4 {
+		label = "data"
+	}
+	size = 30G
+	empty = true
+}
+
 image sdcard.img {
 	hdimage {
 		partition-table-type = "gpt"
@@ -15,5 +23,10 @@ image sdcard.img {
 		image = "rootfs.ext4"
 		partition-uuid = %PARTUUID%
 		bootable = true
+	}
+
+	partition data {
+		image = "data.ext4"
+		partition-type-uuid = 0FC63DAF-8483-4772-8E79-3D69D8477DE4
 	}
 }
