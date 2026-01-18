@@ -1,0 +1,106 @@
+/dts-v1/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include "rk3566.dtsi"
+
+/ {
+	model = "UVIC Rocketry SRAD Camera RK3566";
+	compatible = "uvic-rocketry,srad-camera-rk3566", "rockchip,rk3566";
+
+	chosen {
+		stdout-path = "serial0:1500000n8";
+	};
+
+	aliases {
+		mmc0 = &sdmmc0;
+	};
+};
+
+/* UART0 - Console */
+&uart0 {
+	status = "okay";
+};
+
+/* SDMMC - SD card */
+&sdmmc0 {
+	bus-width = <4>;
+	cap-mmc-highspeed;
+	cap-sd-highspeed;
+	disable-wp;
+	pinctrl-names = "default";
+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
+	status = "okay";
+};
+
+/* USB OTG */
+&usb2phy0_otg {
+	status = "okay";
+};
+
+&usb2phy0 {
+	status = "okay";
+};
+
+&usb_host0_xhci {
+	dr_mode = "otg";
+	status = "okay";
+};
+
+/* MIPI CSI */
+&csi_dphy0 {
+	status = "okay";
+};
+
+/* I2C2 - Camera */
+&i2c2 {
+	status = "okay";
+	clock-frequency = <400000>;
+};
+
+/* Disable everything else */
+&uart1 { status = "disabled"; };
+&uart2 { status = "disabled"; };
+&uart3 { status = "disabled"; };
+&uart4 { status = "disabled"; };
+&uart5 { status = "disabled"; };
+&uart6 { status = "disabled"; };
+&uart7 { status = "disabled"; };
+&uart8 { status = "disabled"; };
+&uart9 { status = "disabled"; };
+
+&i2c0 { status = "disabled"; };
+&i2c1 { status = "disabled"; };
+&i2c3 { status = "disabled"; };
+&i2c4 { status = "disabled"; };
+&i2c5 { status = "disabled"; };
+
+&spi0 { status = "disabled"; };
+&spi1 { status = "disabled"; };
+&spi2 { status = "disabled"; };
+&spi3 { status = "disabled"; };
+
+&pwm0 { status = "disabled"; };
+&pwm1 { status = "disabled"; };
+&pwm2 { status = "disabled"; };
+&pwm3 { status = "disabled"; };
+&pwm4 { status = "disabled"; };
+&pwm5 { status = "disabled"; };
+&pwm6 { status = "disabled"; };
+&pwm7 { status = "disabled"; };
+&pwm8 { status = "disabled"; };
+&pwm9 { status = "disabled"; };
+&pwm10 { status = "disabled"; };
+&pwm11 { status = "disabled"; };
+&pwm12 { status = "disabled"; };
+&pwm13 { status = "disabled"; };
+&pwm14 { status = "disabled"; };
+&pwm15 { status = "disabled"; };
+
+&gmac1 { status = "disabled"; };
+&pcie2x1 { status = "disabled"; };
+&usb_host0_ehci { status = "disabled"; };
+&usb_host0_ohci { status = "disabled"; };
+&usb_host1_ehci { status = "disabled"; };
+&usb_host1_ohci { status = "disabled"; };
+&usb_host1_xhci { status = "disabled"; };
